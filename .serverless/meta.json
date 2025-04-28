@@ -1,0 +1,51 @@
+{
+  "/home/alessia/bookshelf-library/serverless.yml": {
+    "versionFramework": "4.14.1",
+    "servicePath": "/home/alessia/bookshelf-library/serverless.yml",
+    "serviceConfigFileName": "serverless.yml",
+    "service": {
+      "service": "search-books-service",
+      "provider": {
+        "name": "aws",
+        "runtime": "nodejs18.x"
+      },
+      "functions": "${file(src/functions/function.yml)}",
+      "plugins": [
+        "serverless-offline"
+      ]
+    },
+    "provider": {
+      "name": "aws",
+      "runtime": "nodejs18.x"
+    },
+    "dashboard": {
+      "isEnabledForService": false,
+      "requiredAuthentication": false,
+      "orgFeaturesInUse": null,
+      "orgObservabilityIntegrations": null,
+      "serviceAppId": null,
+      "serviceProvider": null,
+      "instanceParameters": null
+    },
+    "error": {
+      "message": "Cannot resolve '${file(src/functions/function.yml)}' variable at 'functions'. No value is available for this variable, and no default value was provided. Please check your variable definitions or provide a default value.",
+      "stack": "Error: Cannot resolve '${file(src/functions/function.yml)}' variable at 'functions'. No value is available for this variable, and no default value was provided. Please check your variable definitions or provide a default value.\n    at _ResolverManager.resolve (file:///home/alessia/.serverless/releases/4.14.1/package/dist/sf-core.js:560:31882)\n    at async #handlePlaceholderNode (file:///home/alessia/.serverless/releases/4.14.1/package/dist/sf-core.js:560:30089)\n    at async file:///home/alessia/.serverless/releases/4.14.1/package/dist/sf-core.js:560:27961\n    at async processNodeAndHandleCompletion (file:///home/alessia/.serverless/releases/4.14.1/package/dist/sf-core.js:560:16742)",
+      "code": "MISSING_VARIABLE_RESULT"
+    },
+    "serviceRawFile": "service: search-books-service  # Nome do seu serviço\n\nprovider:\n  name: aws\n  runtime: nodejs18.x  # Definindo o runtime para Node.js 18.x\nfunctions: ${file(src/functions/function.yml)}\n\nplugins:\n  - serverless-offline",
+    "command": [
+      "offline",
+      "start"
+    ],
+    "options": {},
+    "orgId": "ff716d14-812a-4354-a4bf-d64bf988cc40",
+    "orgName": "alessia",
+    "userId": "jNsX9M8h406HN7FNcv",
+    "userName": "alessia",
+    "serviceProviderAwsCfStackId": null,
+    "serviceProviderAwsCfStackCreated": null,
+    "serviceProviderAwsCfStackUpdated": null,
+    "serviceProviderAwsCfStackStatus": null,
+    "serviceProviderAwsCfStackOutputs": null
+  }
+}

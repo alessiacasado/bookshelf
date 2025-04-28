@@ -3,5 +3,9 @@ service: search-books-service  # Nome do seu serviço
 provider:
   name: aws
   runtime: nodejs18.x  # Definindo o runtime para Node.js 18.x
-
-functions: ${file(functions/function.yml)}
+  timeout: 30
+functions: ${file(src/functions/functions.yml)}
+custom:
+  dotenv: ${file(./.env)}
+plugins:
+  - serverless-offline

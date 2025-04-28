@@ -5,3 +5,7 @@ SearchBooks:
         path: search-books # Caminho da URL para a API
         method: get # Método HTTP GET
         cors: true # Habilitar CORS (se necessário)
+        request:
+          parameters:
+            querystrings:
+              q: true
