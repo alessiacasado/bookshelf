@@ -3,7 +3,7 @@ import 'dotenv/config';
 
 let cachedDb: Db | null = null;
 
-const MONGODB_URI = process.env.MONGODB_URI || '';
+const MONGODB_URI = process.env.MONGO_CONNECTIONSTRING || '';
 
 if (!MONGODB_URI) {
   throw new Error('MONGODB_URI não definida no .env');

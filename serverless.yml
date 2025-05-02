@@ -1,9 +1,18 @@
 service: search-books-service  # Nome do seu serviço
 
+params:
+  default:
+    dbName: bookshelf-serverless
+  dev:
+    connectionString: mongodb://localhost:27017/${self:params.default.dbName}
+
 provider:
   name: aws
   runtime: nodejs18.x  # Definindo o runtime para Node.js 18.x
   timeout: 30
+  environment:
+    MONGO_CONNECTIONSTRING: ${param:connectionString}
+    MONGO_DB_NAME: ${param:dbName}
 functions: ${file(src/functions/functions.yml)}
 custom:
   dotenv: ${file(./.env)}

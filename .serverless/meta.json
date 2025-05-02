@@ -47,5 +47,75 @@
     "serviceProviderAwsCfStackUpdated": null,
     "serviceProviderAwsCfStackStatus": null,
     "serviceProviderAwsCfStackOutputs": null
+  },
+  "/home/alessiacasado/projects/bookshelf/serverless.yml": {
+    "versionFramework": "4.14.1",
+    "servicePath": "/home/alessiacasado/projects/bookshelf/serverless.yml",
+    "serviceConfigFileName": "serverless.yml",
+    "service": {
+      "service": "search-books-service",
+      "params": {
+        "default": {
+          "dbName": "bookshelf-serverless"
+        },
+        "dev": {
+          "connectionString": "mongodb://localhost:27017/bookshelf-serverless"
+        }
+      },
+      "provider": {
+        "name": "aws",
+        "runtime": "nodejs18.x",
+        "timeout": 30,
+        "environment": {
+          "MONGO_CONNECTIONSTRING": "mongodb://localhost:27017/bookshelf-serverless",
+          "MONGO_DB_NAME": "bookshelf-serverless"
+        }
+      },
+      "functions": "${file(src/functions/functions.yml)}",
+      "custom": {
+        "dotenv": "${file(./.env)}"
+      },
+      "plugins": [
+        "serverless-offline"
+      ]
+    },
+    "provider": {
+      "name": "aws",
+      "runtime": "nodejs18.x",
+      "timeout": 30,
+      "environment": {
+        "MONGO_CONNECTIONSTRING": "mongodb://localhost:27017/bookshelf-serverless",
+        "MONGO_DB_NAME": "bookshelf-serverless"
+      }
+    },
+    "dashboard": {
+      "isEnabledForService": false,
+      "requiredAuthentication": true,
+      "orgFeaturesInUse": null,
+      "orgObservabilityIntegrations": null,
+      "serviceAppId": null,
+      "serviceProvider": null,
+      "instanceParameters": null
+    },
+    "error": {
+      "message": "Cannot resolve '${file(./.env)}' variable at 'custom.dotenv'. No value is available for this variable, and no default value was provided. Please check your variable definitions or provide a default value.",
+      "stack": "Error: Cannot resolve '${file(./.env)}' variable at 'custom.dotenv'. No value is available for this variable, and no default value was provided. Please check your variable definitions or provide a default value.\n    at _ResolverManager.resolve (file:///home/alessiacasado/.serverless/releases/4.14.1/package/dist/sf-core.js:560:31882)\n    at async #handlePlaceholderNode (file:///home/alessiacasado/.serverless/releases/4.14.1/package/dist/sf-core.js:560:30089)\n    at async file:///home/alessiacasado/.serverless/releases/4.14.1/package/dist/sf-core.js:560:27961\n    at async processNodeAndHandleCompletion (file:///home/alessiacasado/.serverless/releases/4.14.1/package/dist/sf-core.js:560:16742)",
+      "code": "MISSING_VARIABLE_RESULT"
+    },
+    "serviceRawFile": "service: search-books-service  # Nome do seu serviço\n\nparams:\n  default:\n    dbName: bookshelf-serverless\n  dev:\n    connectionString: mongodb://localhost:27017/${self:params.default.dbName}\n\nprovider:\n  name: aws\n  runtime: nodejs18.x  # Definindo o runtime para Node.js 18.x\n  timeout: 30\n  environment:\n    MONGO_CONNECTIONSTRING: ${param:connectionString}\n    MONGO_DB_NAME: ${param:dbName}\nfunctions: ${file(src/functions/functions.yml)}\ncustom:\n  dotenv: ${file(./.env)}\nplugins:\n  - serverless-offline",
+    "command": [
+      "offline",
+      "start"
+    ],
+    "options": {},
+    "orgId": "ff716d14-812a-4354-a4bf-d64bf988cc40",
+    "orgName": "alessia",
+    "userId": "jNsX9M8h406HN7FNcv",
+    "userName": "alessia",
+    "serviceProviderAwsCfStackId": null,
+    "serviceProviderAwsCfStackCreated": null,
+    "serviceProviderAwsCfStackUpdated": null,
+    "serviceProviderAwsCfStackStatus": null,
+    "serviceProviderAwsCfStackOutputs": null
   }
 }

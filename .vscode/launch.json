@@ -15,7 +15,8 @@
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/dist/**/*.js"
-            ]
+            ],
+            "runtimeExecutable": "/home/alessiacasado/.nvm/versions/node/v20.x.x/bin/node"
         }
     ]
 }
